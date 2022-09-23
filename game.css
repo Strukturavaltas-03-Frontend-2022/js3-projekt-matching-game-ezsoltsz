@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    min-height: 100vh;
+  }
+  
+  body {
+    margin: 0;
+    background: radial-gradient(#9D5900, #3D2200);
+  }
+  
+  .game__title {
+    color: #FF6D00;
+    font-family: sans-serif;
+    font-weight: normal;
+    text-align: center;
+    font-size: 5em;
+  }
+  
+  .info__container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #WhatsTime {
+    color:#FF6D00;
+    font-size: 40px;
+  }
+  
+  .game__container {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    justify-content: center;
+    perspective: 500px;
+    border:2px solid ;
+    background-color: black;
+  }
+  
+  .card {
+    position: relative;
+    height: 175px;
+    width: 125px;
+    cursor: pointer;
+  }
+  
+  .card__face {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+    transition: transform 500ms ease-in-out;
+    backface-visibility: hidden;
+  }
+  
+  .card.visible .card__back {
+    transform: rotateY(-180deg); 
+  }
+  
+  .card.visible .card__face {
+    transform: rotateY(0); 
+  }
+  
+  .card.matched .card__face .value {
+    animation: dance 1s linear infinite 500ms;
+  }
+  
+  .card__back {
+    background-color: black;
+    border-color: #FF6D00;
+    transform: rotateY(0); 
+  }
+  
+  .dragon{
+    align-self: flex-start;
+    transition: transform 100ms ease-in-out;
+    transform: translateY(-10px);
+  }
+  
+  .card__back:hover .dragon {
+    transform: translateY(0);
+  }
+  
+  .value {
+    position: relative;
+    transition: transform 100ms ease-in-out;
+    transform: scale(.9);
+  }
+  
+  .card__face:hover .value {
+    transform: scale(1);
+  }
+  
+  .card__face {
+    background-color: #FFBB89;
+    border-color: #333;
+    transform: rotateY(180deg);
+  }
+
+  @keyframes dance {
+    0%, 100% {
+      transform: rotate(0)
+    }
+    25% {
+      transform: rotate(-30deg)
+    }
+    75% {
+      transform: rotate(30deg)
+    } }
